@@ -1,5 +1,3 @@
-# Library Management System - My Own Logic
-
 class Book:
     def __init__(self, book_id, title, author):
         self.book_id = book_id
@@ -19,7 +17,7 @@ class Library:
         self.books = []
 
     def search_book(self, book_id):
-        # Changed Logic: using while + index, not for loop
+        
         index = 0
         while index < len(self.books):
             if self.books[index].book_id == book_id:
@@ -40,8 +38,7 @@ class Library:
             return
 
         print("\n========== BOOK LIST ==========")
-        # Changed Logic: while loop for viewing also
-        i = 0
+    
         while i < len(self.books):
             print()
             self.books[i].display()
@@ -50,7 +47,7 @@ class Library:
 
     def issue_book(self, book_id):
         book = self.search_book(book_id)
-        # Changed Logic: nested if, not elif
+        
         if book is None:
             print("Error: Book not found!")
         else:
@@ -88,7 +85,7 @@ def main():
 
         if choice == "1":
             id_text = input("Enter Book ID: ")
-            # Changed Logic: isdigit() instead of try/except
+            
             if not id_text.isdigit():
                 print("Please enter numbers only for ID.")
                 continue
